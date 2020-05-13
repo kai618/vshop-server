@@ -2,7 +2,7 @@ const express = require("express");
 const port = process.env.PORT || 80;
 
 const admin = require("firebase-admin");
-const serviceAccount = require("firebase/veggie-shop-firebase-adminsdk-vjdom-4f9603ad17.json");
+const serviceAccount = require("./firebase/veggie-shop-firebase-adminsdk-vjdom-4f9603ad17.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
