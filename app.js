@@ -15,4 +15,8 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
+app.get('/', (req, res) => {
+  return res.json({ value: 'good'});
+})
+
 app.get("/users", (req, res) => {});
