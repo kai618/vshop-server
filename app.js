@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const port = process.env.PORT || 80;
 const app = express();
 app.use(bodyParser.json());
@@ -11,6 +12,12 @@ admin.initializeApp({
   databaseURL: "https://veggie-shop.firebaseio.com",
 });
 const fs = admin.firestore();
+
+var corsOptions = {
+  origin: ["http://localhost:80", "https://veggie-shop.web.app"],
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
