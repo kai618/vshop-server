@@ -13,8 +13,8 @@ admin.initializeApp({
 });
 const fs = admin.firestore();
 
-var corsOptions = {
-  origin: ["http://localhost:80", "https://veggie-shop.web.app"],
+const corsOptions = {
+  origin: ["http://localhost", "https://veggie-shop.web.app"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
