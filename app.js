@@ -13,6 +13,7 @@ admin.initializeApp({
 });
 const fs = admin.firestore();
 
+// it will not work with port addition
 const corsOptions = {
   origin: ["http://localhost", "https://veggie-shop.web.app"],
   optionsSuccessStatus: 200,
