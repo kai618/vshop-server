@@ -109,3 +109,24 @@ app.delete("/admin/:uid", async (req, res) => {
     return res.send(false);
   }
 });
+
+// block / unblock a user
+app.put("/user/:uid/:status", async (req, res) => {
+  const uid = req.params.uid;
+  const status = req.params.status;
+
+  try {
+    const ref = fs.collection("blocked-users").doc(uid);
+
+    if (status == "true") {
+      await ref.delete();
+    } else if (status == "false") {
+      await ref.set();
+    } else {
+      throw new Error("Invalid params");
+    }
+    return res.send(true);
+  } catch {
+    return res.send(false);
+  }
+});
