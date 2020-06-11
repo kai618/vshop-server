@@ -119,9 +119,9 @@ app.put("/user/:uid/:status", async (req, res) => {
     const ref = fs.collection("blocked-users").doc(uid);
 
     if (status == "true") {
-      await ref.delete();
-    } else if (status == "false") {
       await ref.set();
+    } else if (status == "false") {
+      await ref.delete();
     } else {
       throw new Error("Invalid params");
     }
