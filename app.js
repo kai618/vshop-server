@@ -53,7 +53,7 @@ app.post("/admin", async (req, res) => {
       .doc(uid);
 
     await ref.set({
-      active: true,
+      active: false,
     });
 
     return res.send(true);
